@@ -1,0 +1,112 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Article Performance Leaderboard</title>
+	<meta name="application-name" content="Article Performance" />
+	<meta name="apple-mobile-web-app-title" content="Article Performance">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<link rel="canonical" href="https://projects.hearstnp.com/performance/" />
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://projects.hearstnp.com/performance/assets/images/touch-180.png" />
+	<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+	<link rel="stylesheet" media="all" href="assets/style.css" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="rank.xml" />
+	<meta property="og:url" content="https://projects.hearstnp.com/performance/" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Article Performance Leaderboard" />
+	<meta property="og:description" content="Daily updated stats on article web page performance across the news and media organizations." />
+	<meta property="og:image" content="https://projects.hearstnp.com/performance/assets/images/opengraph.png" />
+	<script>
+		if (location.origin === "http://projects.hearstnp.com") {
+			location.href = "https://projects.hearstnp.com/performance/";
+		}
+		document.write("<scrip" + "t src=\"data/rankings.js?x=" + parseInt(Date.now()/10000, 10) + "\"></scr" + "ipt>");
+	</script>
+<!--
+	Thank you...
+		Fabio Ottaviani for base page and styling
+			http://codepen.io/supah/pen/WwrJpw
+			https://twitter.com/supahfunk
+		Web Page Test for awesomeness and an API
+			https://www.webpagetest.org
+		Google Sheets
+			https://docs.google.com/spreadsheets/d/1c1zhkdvWE0WvG84TT3Czekj0N-0sRUEBKO3c0Aeflxw/
+-->
+</head>
+<body>
+	<div class="leaderboard">
+		<h1>
+			<svg class="ico-cup"><use xlink:href="#award"></use></svg>
+			Article Performance Leaderboard
+			<span>Mobile tested over <a href="https://en.wikipedia.org/wiki/3G">3G</a>. Last updated <t id="updated">12 hours ago</t>. <br>Score reflects Load Time, Speed Index, Number of Requests, Page Size, and when it was Visually Complete. <a id="showMore" href="#learn-more">Learn more</a>.</span>
+		</h1>
+		<ol id="rankings">
+			<li><mark>Loading</mark></li>
+		</ol>
+	</div>
+
+	<div id="learn-more">
+		<h2>More Information</h2>
+		<p>Lets state the obvious, this is an imperfect and evolving measure and the goal is to foster discussion and rivalry in making our pages better, faster, and lighter. Bear in mind this was built as an internal tool at Hearst Newspapers to track changes as we rollout our new Article template on mobile for SFGate and eventually all sites (SF Chronicle, Houston Chronicle, Times Union, etc).</p>
+		<p>Developers, designers, and product need to talk more on how to achieve this. A 1,700 word article might weigh 10KB but by the time you load HTML, JS, CSS, images, 3rd-parties, and ads, it can range between 2MB to 8MB depending on the web site. Bear in mind, the first Harry Potter ebook is 1.1MB and that includes cover art.</p>
+		<p>This uses <a href="https://www.webpagetest.org/">WebPageTest.org</a> to measure web page load speed on articles from a variety of news organizations and publishers and highlight the top ten.</p>
+		<p>Benchmarking across different sites is hard. The aspirational goal is measuring perceptual load time for a user - when the reader 'thinks' the page has loaded. For now this provides benchmarks to monitor.</p>
+		<p><b>Score = Load Time (seconds) * Speed Index * Page Size (MB)</b></p>
+		<p>This will be updated soon to also factor in <em>Visually Complete</em> and exploring Time To Interactive (TTI).</p>
+		<p>Tests run twice daily. Results are averaged of last 3 days on a simulated LTE connection. There's probably a better way of doing it but there you go. Eventual goal is to test on actual mobile hardware.</p>
+		<p>Further reading:</p>
+		<ul>
+			<li><a href="https://css-tricks.com/use-webpagetest-api/">How To Use WebPageTest and its API</a> (CSS Tricks)</li>
+			<li><a href="https://www.smashingmagazine.com/2015/09/why-performance-matters-the-perception-of-time/">Why Perceived Performance Matters, Part 1: The Perception Of Time</a> (Smashing Magazine)</li>
+			<li><a href="https://webmasters.googleblog.com/2010/04/using-site-speed-in-web-search-ranking.html">Using site speed in web search ranking</a> (Google / 2010)</li>
+			<li><a href="https://www.theguardian.com/info/developer-blog/2017/mar/06/empowering-our-editorial-teams-to-impact-page-performance">
+			Empowering our editorial teams to impact page performance</a> (Guardian)</li>
+			<li><a href="https://www.nytimes.com/interactive/2015/10/01/business/cost-of-mobile-ads.html">The Cost of Mobile Ads on 50 News Websites</a> (The New York Times)</li>
+		</ul>
+		<p>Questions? Problems? You can find me on Twitter at <a href="https://twitter.com/donohoe" target="_blank">@donohoe</a></p>
+		<p>All data, tests, and formulae, is publicly viewable in this <a href="https://docs.google.com/spreadsheets/d/1c1zhkdvWE0WvG84TT3Czekj0N-0sRUEBKO3c0Aeflxw/edit#gid=0" target="_blank"><img src="assets/images/sheets.svg"/>Google Spreadsheet</a>.</p>
+	</div>
+
+	<div id="footer">
+		<p><a href="data/rankings.xml" target="_blank">RSS</a> <a href="data/rankings.js" target="_blank">JS</a> <a href="data/rankings.json" target="_blank">JSON</a> <a href="data/rankings.jsonp" target="_blank">JSONP</a></p>
+	</div>
+	<span style="display: none;">
+		<svg id="award" fill="#F26856" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" x="0px" y="0px">
+			<style>
+				.c1, .c2 {fill:none;stroke:#F26856;stroke-width:4px;}
+				.c1 {stroke-linecap:round;stroke-linejoin:round;}
+				.c2 {stroke-miterlimit:10;}
+			</style>
+			<circle class="c1" cx="64" cy="64" r="62"/>
+			<path class="c1" d="M92,32c2.93-7.61-10-10-10-10S84.34,34.88,92,32Z"/>
+			<path class="c1" d="M101.91,41.95c7.45-3.31,0-14.07,0-14.07S94.46,38.64,101.91,41.95Z"/>
+			<path class="c1" d="M107.61,56.57c8.15-.16,5.46-13,5.46-13S102,50.63,107.61,56.57Z"/>
+			<path class="c1" d="M107.41,70.19c6.79,4.52,11.88-7.54,11.88-7.54S106.21,62.12,107.41,70.19Z"/>
+			<path class="c1" d="M102.74,83.09c5,6.43,13.66-3.39,13.66-3.39S104.16,75.06,102.74,83.09Z"/>
+			<path class="c1" d="M93.63,95c3.41,7.4,14.07-.19,14.07-.19S96.84,87.5,93.63,95Z"/>
+			<path class="c1" d="M36,32c-2.93-7.61,10-10,10-10S43.66,34.88,36,32Z"/>
+			<path class="c1" d="M26.09,41.95c-7.45-3.31,0-14.07,0-14.07S33.54,38.64,26.09,41.95Z"/>
+			<path class="c1" d="M20.39,56.57c-8.15-.16-5.46-13-5.46-13S26,50.63,20.39,56.57Z"/>
+			<path class="c1" d="M20.59,70.19C13.81,74.7,8.71,62.65,8.71,62.65S21.79,62.12,20.59,70.19Z"/>
+			<path class="c1" d="M25.26,83.09c-5,6.43-13.66-3.39-13.66-3.39S23.84,75.06,25.26,83.09Z"/>
+			<path class="c1" d="M34.37,95C31,102.4,20.3,94.8,20.3,94.8S31.16,87.5,34.37,95Z"/>
+			<path class="c1" d="M92,32c9.1,7.44,14.87,19.63,14.87,32.3A40,40,0,0,1,78,103c-7,2-17,4-20,12"/>
+			<path class="c1" d="M36,32c-9.1,7.44-14.87,19.63-14.87,32.3A40,40,0,0,0,50,103c7,2,17,4,20,12"/>
+			<rect class="c2" x="48" y="33" width="32" height="61" rx="8" ry="8" transform="translate(128 127) rotate(-180)"/>
+			<circle cx="64" cy="87" r="3"/>
+			<line class="c2" x1="59" y1="39" x2="69" y2="39"/><line class="c2" x1="80" y1="79" x2="48" y2="79"/>
+		</svg>
+	</span>
+	<script src="assets/app.js"></script>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-84860034-5', 'auto');
+		ga('send', 'pageview');
+	</script>
+</body>
+</html>
