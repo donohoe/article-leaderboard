@@ -1,7 +1,7 @@
 # Article Leaderboard
 Article Performance Leaderboard for testing real-life mobile pages across various media orgs
 
-It relies heavily on a Google Spreadsheet to store and analyses data collected through repeated tests on WebPageTest.org.
+It relies heavily on a Google Spreadsheet to store and analyses data collected through repeated tests on [WebPageTest.org](https://sites.google.com/a/webpagetest.org/docs/advanced-features/webpagetest-restful-apis).
 
 The sheet in question is here:
 
